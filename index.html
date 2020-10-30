@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Rajiv Ganesh">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Open+Sans&family=Roboto+Condensed:wght@700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" media="screen" href="css/master.css">
+        <title> TTMOE - Public Primary School Admission Form</title>
+    </head>
+    <body class="wrapper">
+        <header>
+            <div class="page-title">
+                <div class="visor">
+                    <h1>Ministry of Education of The Republic of Trinidad and Tobago</h1>
+                </div>
+            </div>
+        </header>
+        <main class="page-content">
+            <section id="form-details" class="form-section">
+                <h2>Application for admission into a public primary school.</h2>
+                <a href="docs/Circular-Memorandum.pdf"><p>Criteria for acceptance into Infant Year 1 (as stated in Circular Memorandum No.2 of 2019) :</p></a>
+                <ol>
+                    <li>Child must have attained the age of five in the term in which he/she is to be admitted.</li>
+                    <li>Child resides within three kilometres of the school to which application is made.</li>
+                </ol>
+            </section>
+            <section id="instructions" class="form-section">
+                <h2>Instructions</h2>
+                <p>Before you begin entering information in this form please note the following:</p>
+                <ul>
+                    <li>This form has 6 sections</li>
+                    <li>This form is only for entrance into primary school, and not secondary, or tertiary educational institutions</li>
+                    <li>The information entered in this form must be true, and must be able to be verified</li>
+                    <li><em class="required"> * </em>- denotes a required field, which must not be empty or invalid</li>
+                </ul>
+            </section>
+            <form id="form" action="php/form-data.php" method="POST" enctype="multipart/form-data">
+                <section id="school-select" class="form-section">
+                    <div class="section-heading">
+                        <h2>Section 1: School</h2>
+                        <p>Enter the name of the government funded primary education institution you wish to apply to send the child.</p>
+                    </div>
+                    <div class="form-item-vert">
+                        <label class="form-label" for="school-name">Name of School<em class="required"> * </em></label>
+                        <input id="school-name" class="input-box" type="text" placeholder="Enter the name of the school for which you are applying" name="school-name">
+                        <small id="school-name-error" ></small>
+                    </div>
+                </section>
+                    <!-- child information section-->
+                <section id="c-section" class="form-section">
+                    <div class="section-heading">
+                        <h2>Section 2: Child's Information</h2>
+                        <p>The information required in this section must be for the child applying to be admitted to public primary school for the first time.</p>
+                    </div>
+                    <div class="child-form">
+                        <div class="form-item-vert">
+                            <label class="form-label" for="child-surname">Surname<em class="required"> * </em></label>
+                            <input id="child-surname" class="input-box" type="text" placeholder="Child's last name" name="child-surname">
+                            <small id="child-sname-error" ></small>
+                            <label class="form-label" for="child-firstname">First Name<em class="required"> * </em></label>
+                            <input id="child-firstname" class="input-box" type="text" placeholder="Child's first name" name="child-firstname">
+                            <small id="child-fname-error" ></small>
+                            <label class="form-label" for="child-othernames">Other Names</label>
+                            <input id="child-othernames" class="input-box" type="text" placeholder="Child's other legal names" name="child-othernames">
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label">Gender<em class="required"> * </em></label>
+                            <div>
+                                <label for="child-male">Male</label>
+                                <input id="child-male" type="radio" name="child-gender" value="male">
+                                <label for="child-female">Female</label>
+                                <input id="child-female" type="radio" name="child-gender" value="female">
+                            </div>
+                            <small id="child-gender-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label" for="child-religion">Religion</label>
+                            <input id="child-religion" class="input-box" type="text" placeholder="Child's religion" name="child-religion">
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label" for="child-dob">Date of Birth<em class="required"> * </em></label>
+                            <input id="child-dob" class="input-box" type="date" name="child-dob" >
+                            <small id="child-dob-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label" for="child-pin">PIN (Birth Certificate)<em class="required"> * </em></label>
+                            <input id="child-pin" class="input-box" type="text" placeholder="Located on birth certificate" name="child-pin">
+                            <small id="child-pin-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label" for="child-address">Address (Same as on utility bill.)<em class="required"> * </em></label>
+                            <textarea id="child-address" class="input-box" placeholder="Child's home address" name="child-address" rows="4" cols="80" ></textarea>
+                            <small id="child-address-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label">Is the child's immunization up to date?<em class="required"> * </em></label>
+                            <div>
+                                <label for="immunized-y">Yes</label>
+                                <input id="immunized-y" type="radio" name="child-immunized" value="yes">
+                                <label for="immunized-n">No</label>
+                                <input id="immunized-n" type="radio" name="child-immunized" value="no">
+                            </div>
+                            <small id="child-immu-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label" for="child-nationality">Nationality<em class="required"> * </em></label>
+                            <input id="child-nationality" class="input-box" type="text" placeholder="Child's nationality" name="child-nationality">
+                            <small id="child-nationality-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label">Valid student permit  *( If required )</label>
+                                <div>
+                                    <label for="stupermit-y">Yes</label>
+                                    <input id="stupermit-y" type="radio" name="student-permit" value="yes">
+                                    <label for="stupermit-n">No</label>
+                                    <input id="stupermit-n" type="radio" name="student-permit" value="no">
+                                </div>
+                        </div>
+                    </div>
+                </section>
+                    <!-- end of child information section -->
+                    <!-- family information section -->
+                <section id="f-section" class="form-section">
+                    <h2>Section 3: Family Information (Parents/Guardians)</h2>
+                    <p>The information entered in this section pertains to the immediate legal guardians of the applying child.</p>
+                        <!-- family section 1 -->
+                    <div class="form-item-row">
+                        <div id="pg" class="form-item-vert">
+                            <h2>Parent/Guardian 1</h2>
+                            <label class="form-label" for="fam1-relation">Relationship to child<em class="required"> * </em></label>
+                            <input id="fam1-relation" class="input-box" type="text" placeholder="Legal relation to child" name="pg1-relationship">
+                            <small id="fam1-relation-error"></small>
+                            <label class="form-label" for="fam1-name">Full Name<em class="required"> * </em></label>
+                            <input id="fam1-name" class="input-box" type="text" placeholder="Parent/guardian first and last names" name="pg1-name">
+                            <small id="fam1-name-error"></small>
+                            <label class="form-label" for="fam1-contact">Contact<em class="required"> * </em></label>
+                            <input id="fam1-contact" class="input-box" type="tel" placeholder="Phone number" name="pg1-contact">
+                            <small id="fam1-contact-error"></small>
+                            <label class="form-label" for="fam1-address">Address<em class="required"> * </em></label>
+                            <textarea id="fam1-address" class="input-box" placeholder="Place of residence" name="pg1-address" rows="4" cols="80"></textarea>
+                            <small id="fam1-address-error"></small>
+                            <label class="form-label" for="fam1-email">Email</label>
+                            <input id="fam1-email" class="input-box" type="email" placeholder="Parent/guardian email address" name="pg1-email">
+                        </div>
+                        <!-- end of family section 1 -->
+                        <!-- family section 2 -->
+                        <div id="pg" class="form-item-vert">
+                            <h2>Parent/Guardian 2</h2>
+                            <label class="form-label" for="fam2-relation">Relationship to child</label>
+                            <input id="fam2-relation" class="input-box" type="text" placeholder="Legal relation to child" name="pg2-relationship">
+                            <label class="form-label" for="fam2-name">Full Name</label>
+                            <input id="fam2-name" class="input-box" type="text" placeholder="Parent/guardian first and last names" name="pg2-name">
+                            <label class="form-label" for="fam2-contact">Contact</label>
+                            <input id="fam2-contact" class="input-box" placeholder="Phone number" type="tel" name="pg2-contact">
+                            <label class="form-label" for="fam2-address">Address</label>
+                            <textarea id="fam2-address" class="input-box" placeholder="If the same as parent 1, leave blank" name="pg2-address" rows="4" cols="80"></textarea>
+                            <label class="form-label" for="fam2-email">Email</label>
+                            <input id="fam2-email" class="input-box" type="email" placeholder="Parent/guardian email address" name="pg2-email">
+                        </div>
+                    </div>
+                </section>
+                    <!-- end of family section 2 -->
+                    <!-- siblings section -->
+                <section id="s-section" class="form-section">
+                    <h2>Section 4: Siblings</h2>
+                    <p>The information entered in this section pertains to the siblings of the applying child.</p>
+                    <p><i>Kindly note that having siblings at the school does not guarantee acceptance.</i></p>
+                    <div class="form-item-vert">
+                        <label class="form-label" for="">Are any siblings currently attending this school?</label>
+                        <div class="">
+                            <label for="siblings-y">Yes</label>
+                            <input id="siblings-y" type="radio" name="legacy-siblings" value="yes">
+                            <label for="siblings-n">No</label>
+                            <input id="siblings-n" type="radio" name="legacy-siblings" value="no">
+                        </div>
+                    </div>
+                    <div class="form-item-row">
+                            <div class="form-item-vert">
+                                <label class="form-label" for="sibling-1-name">Name of Sibling 1</label>
+                                <input id="sibling-1-name" class="input-box" type="text" placeholder="Full name of sibling" name="sibling-1-name">
+                                <label class="form-label" for="sibling-1-class">Class</label>
+                                <input id="sibling-1-class" class="input-box" type="text" placeholder="std 1, std 2... etc" name="sibling-1-class">
+                            </div>
+                            <div class="form-item-vert">
+                                <label class="form-label" for="sibling-2-name">Name of Sibling 2</label>
+                                <input id="sibling-2-name" class="input-box" type="text" placeholder="Full name of sibling" name="sibling-2-name">
+                                <label class="form-label" for="sibling-2-class">Class</label>
+                                <input id="sibling-2-class" class="input-box" type="text" placeholder="std 1, std 2... etc" name="sibling-2-class">
+                            </div>
+                            <div class="form-item-vert">
+                                <label class="form-label" for="sibling-3-name">Name of Sibling 3</label>
+                                <input id="sibling-3-name" class="input-box" type="text" placeholder="Full name of sibling" name="sibling-3-name">
+                                <label class="form-label" for="sibling-3-class">Class</label>
+                                <input id="sibling-3-class" class="input-box" type="text" placeholder="std 1, std 2... etc" name="sibling-3-class">
+                            </div>
+                    </div>
+                </section>
+                    <!-- end of siblings section -->
+                    <!-- document upload -->
+                <section id="d-section" class="form-section">
+                    <h2>Section 5: Document Upload</h2>
+                    <p>In this section the documents you will be required to upload are, a <b>recent utility bill</b>, the <b>child's birth certificate</b>, and the <b>child's updated immunization card</b>. All documents in this section <b>MUST</b> be submitted.</p>
+                    <div class="docu-form">
+                        <div class="form-item-vert">
+                            <label class="form-label" for="file-bill">Utility Bill</label>
+                            <input id="file-bill" type="file" name="file-bill">
+                            <small id="file-bill-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label" for="file-birthcert">Birth Certificate</label>
+                            <input id="file-birthcert" type="file" name="file-birthcert">
+                            <small id="file-birthcert-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label" for="file-immucard">Immunization Card</label>
+                            <input id="file-immucard" type="file" name="file-immucard">
+                            <small id="file-immucard-error"></small>
+                        </div>
+                    </div>
+                </section>
+                    <!-- end of document upload -->
+                    <!-- declaration of applicant -->
+                <section id="app-dec" class="form-section">
+                    <h2>Section 6: Declaration by Applicant</h2>
+                    <div class="app-dec-info">
+                        <div class="form-item-vert">
+                            <label class="form-label" for="applicant">Applicant Name<em class="required"> * </em></label>
+                            <input id="d-app-name" class="input-box" type="text" placeholder="Your full name" name="applicant-name">
+                            <small id="d-app-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label" for="relation">Relationship to Child<em class="required"> * </em></label>
+                            <input id="d-rel-child" class="input-box" type="text" placeholder="Your legal relation to child" name="applicant-relation">
+                            <small id="d-rel-error"></small>
+                        </div>
+                        <div class="form-item-vert">
+                            <label class="form-label" for="child">Name of Child<em class="required"> * </em></label>
+                            <input id="d-child-name" class="input-box" type="text" placeholder="Child's full name" name="applicant-child">
+                            <small id="d-child-error"></small>
+                        </div>
+                    </div>
+                    <section>
+                        <p>By checking the box below you acknowledge the information submitted on this page is true, and correct.</p>
+                        <p>I acknowledge that:</p>
+                        <ul>
+                            <li>A declaration of any false information;</li>
+                            <li>Failure to provide the documents requested, or</li>
+                            <li>Failure to satisfy the stated criteria for acceptance</li>
+                        </ul>
+                        <p>may disqualify my child from admission to this school.</p>
+                    </section>
+                    <div class="dec-check">
+                        <input id="declaration-agree" type="checkbox" name="agreement" value="Agreed">
+                        <label for="declaration-agree">I agree to the above terms, and all the information I provided is true to my knowledge.</label>
+                    </div>
+                    <small id="d-agree"></small>
+                    <section>
+                        <p>Please note that incomplete applications will not be processed. Additional information will be required from successful applicants at registration. Parents are advised to apply to at least three (3) schools as an application does not guaranteee acceptance. All complete applications must be submitted to the respective schools by 20th March 2020.</p>
+                        <p>Parents/Guardians of successful applicants will be informed during the period 15th May - 29th May 2020.</p>
+                    </section>
+                    <div class="form-btns">
+                        <button id="printbtn" class="print-btn" type="button" name="print-btn">Print</button>
+                        <button class="reset-btn" type="reset" name="reset-btn">Reset</button>
+                        <button class="submit-btn" type="submit" name="submit-btn">Submit</button>
+                    </div>
+                </section>
+            </form>
+        </main>
+        <footer>
+            <p>Assignment 2 | WEBP3001 | &#9400;Copyright Rajiv Ganesh | 86673</p>
+        </footer>
+    </body>
+    <script src="php/form-proc.php"></script>
+    <!-- <script src="javascript/form.js" charset="utf-8"></script> -->
+</html>
