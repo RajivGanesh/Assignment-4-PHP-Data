@@ -45,7 +45,6 @@ const decAgree = document.getElementById('declaration-agree');
     //
 form.addEventListener('submit', (e) => {
     errorFlag = false;
-    e.preventDefault();
 
     while (errorFlag == false) {
         //  Child information section
